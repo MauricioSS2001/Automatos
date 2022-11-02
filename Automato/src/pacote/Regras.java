@@ -22,12 +22,27 @@ public class Regras {
     
     public boolean regra_ndigitos_pares(String cadeia, char dg1) {
         int elementos = 0;
-        for(int x=0;x<cadeia.length()-1;x++) {
+        for(int x=0;x<cadeia.length();x++) {
             if(cadeia.charAt(x) == dg1) {
                 elementos = elementos + 1;
             }
         }
         if(elementos != 0 && elementos%2 == 0) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public boolean regra_ndigitos_impares(String cadeia, char dg1) {
+        int elementos = 0;
+        for(int x=0;x<cadeia.length();x++) {
+            if(cadeia.charAt(x) == dg1) {
+                elementos = elementos + 1;
+            }
+        }
+        if(elementos != 0 && elementos%2 != 0) {
             return true;
         }
         else {
