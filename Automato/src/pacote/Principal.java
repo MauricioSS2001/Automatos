@@ -21,7 +21,6 @@ public class Principal {
 		System.out.println("=== Menu ===");
 		System.out.println("1. Regra de haver subcadeia com dois digitos");
 		System.out.println("2. Regra de elementos pares");
-		System.out.println("3. Regra de elementos impares");
 		System.out.print("\nDigite a regra que voce deseja: ");
 		opcao_regra = sc.nextInt();   // Selecao de opcao do Menu
 		
@@ -59,20 +58,6 @@ public class Principal {
 		        aut.estados(cadeia);
 		        break;
 		        
-		    case 3:
-		        System.out.print("Digite o elemento (ha numero de elementos impar?): ");
-                dg1 = sc.next().charAt(0);
-                System.out.println("\nDigite a cadeia a ser lida: ");
-                cadeia = sc.next();
-                
-                regra = rgs.regra_ndigitos_impares(cadeia, dg1);
-                while(regra == false) {
-                    System.out.println("\nCadeia invalida, digite a cadeia novamente: ");
-                    cadeia = sc.next();
-                    regra = rgs.regra_ndigitos_impares(cadeia, dg1);
-                }
-                aut.estados(cadeia);
-                break;
 		}
 		
 		
