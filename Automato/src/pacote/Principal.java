@@ -11,20 +11,24 @@ public class Principal {
 		Automato aut = new Automato();
 		Regras rgs = new Regras();
 		Scanner sc = new Scanner(System.in);
-		ArrayList<Character> alfabeto = new ArrayList();
+		ArrayList<Character> alfabeto = new ArrayList<Character>();
 		
 		// Variaveis
 		String cadeia;
 		boolean regra = false, teste_alfabeto;       // Verificador de cadeias validas
 		int opcao_regra= 0, elementos;              // Opcoes do Menu
 		char dg1, dg2;                             // Prmeiro e segundo digito da regra de subcadeia com dois digitos
-		int estados;                              // Numero de estados do AFN
+		int estados, estado_inicial;                              // Numero de estados do AFN
 		
 		// Numero de estados do AFN
 		System.out.print("Digite o numero de estados do AFN: ");
 		estados = sc.nextInt();
 		
-		// Definição do numero de elementos da lista(alfabeto)
+		// Define o estado inicial do Automato
+		System.out.print("Digite o estado inicial: ");
+		estado_inicial = sc.nextInt();
+		
+		// Definiï¿½ï¿½o do numero de elementos da lista(alfabeto)
 		System.out.print("Digite o numero de elementos do alfabeto: ");
 		elementos = sc.nextInt();
 		
@@ -64,7 +68,7 @@ public class Principal {
     		        cadeia = sc.next();
     		        regra = rgs.regra_dois_digitos(cadeia, dg1, dg2);
     		    }    
-    		    aut.estados(cadeia);
+    		    aut.estados(estados, cadeia, estado_inicial);
     		    break;
     		    
 		    case 2:
@@ -85,7 +89,7 @@ public class Principal {
                     cadeia = sc.next();
                     regra = rgs.regra_ndigitos_pares(cadeia, dg1);
                 }
-		        aut.estados(cadeia);
+		        aut.estados(estados, cadeia, estado_inicial);
 		        break;
 		        
 		    case 3:
@@ -106,7 +110,7 @@ public class Principal {
                     cadeia = sc.next();
                     regra = rgs.regra_ndigitos_impares(cadeia, dg1);
                 }
-                aut.estados(cadeia);
+                aut.estados(estados, cadeia, estado_inicial);
                 break;
 		}
 		
@@ -118,7 +122,7 @@ public class Principal {
 	    int controle = 0;
 	    for(int x=0; x<elementos;x++) {
 	        for(int y=0; y<elementos; y++) {
-	            if(cadeia.charAt(x) != alfabeto.get(y)){
+	            if(cadeia.charAt(x) == alfabeto.get(y)){
 	                controle = controle + 1;
 	            }
 	        }

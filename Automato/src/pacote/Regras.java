@@ -5,6 +5,10 @@ public class Regras {
     public boolean regra_dois_digitos(String cadeia, char dg1, char dg2) {
         char validacao;
         boolean valida = false;
+        
+        if(cadeia.length() == 1) {
+            return(false);
+        }
         for(int x=0;x<cadeia.length()-1;x++) {
             validacao = cadeia.charAt(x);
             if(validacao == dg1 && cadeia.charAt(x+1) == dg2) {
